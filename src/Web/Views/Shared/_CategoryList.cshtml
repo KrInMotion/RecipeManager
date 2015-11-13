@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CategoryListVM>
+@if (Model.Any())
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.CategoryName)</th>
+                <th class="hidden-xs">@Html.DisplayNameFor(model => model.RecipeCount)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Category" asp-action="Edit" asp-route-id="@category.Id">@category.CategoryName</a>
+                    </td>
+                    <td class="hidden-xs">
+                        @category.RecipeCount
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-danger btn-xs @category.DeleteClass">
+                            <i class="fa fa-trash-o"></i> Удалить
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
