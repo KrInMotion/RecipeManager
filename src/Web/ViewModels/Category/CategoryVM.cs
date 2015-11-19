@@ -10,9 +10,9 @@ namespace Web.ViewModels.Category
     public class CategoryListVM
     {
         public int Id { get; set; }
-        //[DisplayName("Наименование категории")]
+        [Display(Name ="Наименование категории")]
         public string CategoryName { get; set; }
-        //[DisplayName("Кол-во рецептов")]
+        [Display(Name ="Кол-во рецептов")]
         public int RecipeCount { get; set; }
         [ScaffoldColumn(false)]
         public string DeleteClass { get; set; }

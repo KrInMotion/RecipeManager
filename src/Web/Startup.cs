@@ -4,7 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
-using Microsoft.Framework.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNet.Hosting;
 
 namespace Web
 {
@@ -14,7 +15,7 @@ namespace Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-        }
+        }  
 
         public void Configure(IApplicationBuilder app)
         {
@@ -30,5 +31,6 @@ namespace Web
                     );
             });
         }
+        public static void Main(string[] args) => WebApplication.Run<Startup>(args);
     }
 }
