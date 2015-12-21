@@ -138,6 +138,26 @@ h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
         margin-bottom:  10px;
     }
 }
+
+/*Scrollup*/
+div.scrollup {
+   position: fixed;
+   color: #fff;
+    background-color: #000;
+   right: 20px;
+   bottom: 0;
+   padding: 4px 10px;
+   font-size: 20px;
+   border-top-left-radius: 4px;
+   border-top-right-radius: 4px;
+   cursor: pointer;
+   display: none;
+   text-align: center;
+}
+
+div.scrollup:hover{
+    background-color: #000;
+}
 /*Footer*/
 footer .copyright {
     background: #eee;
