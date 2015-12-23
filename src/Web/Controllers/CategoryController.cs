@@ -4,14 +4,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Web.ViewModels.Category;
+using Microsoft.Extensions.Logging;
+using Web.Models.Repositories;
 
 namespace Web.Controllers
 {
     public class CategoryController : Controller
     {
+        private readonly ILogger<CategoryController> _logger;
+        private readonly ICategoryRepository _categoryRepository;
+
+        public CategoryController(ICategoryRepository categoryRepository, ILogger<CategoryController> logger)
+        {
+            _categoryRepository = categoryRepository;
+            _logger = logger;
+        }
+
         // GET: /<controller>/
         public IActionResult Index()
         {
+            var t = _categoryRepository.GetAllCategoriesWithRecipe();
             var model = new List<CategoryListVM>
             {
                 new CategoryListVM {Id=1, CategoryName="Категория №1", RecipeCount=0 },
