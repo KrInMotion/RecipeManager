@@ -56,7 +56,7 @@ namespace Web
                 route.MapRoute(
                     name: "default",
                     template: "{controller}/{action}/{id?}",
-                    defaults: new {controller="home", action="index"}
+                    defaults: new {controller="recipe", action="index"}
                     );
             });
             SampleData.Initialize(app.ApplicationServices);

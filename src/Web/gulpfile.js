@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     rimraf = require('rimraf'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-        cssmin = require('gulp-cssmin');
+    cssmin = require('gulp-cssmin');
 var paths = {
     webroot: "./wwwroot/"
 };

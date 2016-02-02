@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
+using Web.ViewModels.Recipe;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Web.Controllers
 {
-    public class HomeController : Controller
+    public class RecipeController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View();
+            var model = new List<RecipeListVM>
+            {new RecipeListVM {
+                Id = 1,
+                Title = "Тестовое наименование"
+            }};
+            return View(model);
         }
     }
 }

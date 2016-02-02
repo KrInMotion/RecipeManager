@@ -22,6 +22,12 @@ namespace Web.Models
                 .Property(x => x.Title)
                 .IsRequired()
                 .HasMaxLength(255);
+            modelBuilder.Entity<Recipe>()
+                .Property(c => c.Content)
+                .IsRequired();
+            modelBuilder.Entity<Recipe>().Property(x => x.CoockTime)
+                .HasMaxLength(100);
+            modelBuilder.Entity<Recipe>().Property(x => x.CreatedAt).IsRequired();
         }
     }
 }

@@ -7,16 +7,14 @@
         <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
         <link href="~/css/style.css" rel="stylesheet" />
     </environment>
-    <environment name="Staging,Production">
+    <environment name="Staging, Production">
         <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
     </environment>
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <div class="wrapper">
-        <div>
-            @RenderBody()
-        </div>
+        @RenderBody()
         <footer>
             <div class="copyright">
                 <div class="container">
@@ -32,8 +30,11 @@
         </div>
     </div>
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <environment name="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    </environment>
+
     <script type="text/javascript">
         $(function () {
             $('.scrollup').click(function () {
@@ -43,10 +44,9 @@
             })
         });
         $(window).scroll(function () {
-            if($(this).scrollTop()!=0) {
+            if ($(this).scrollTop() != 0) {
                 $('.scrollup').fadeIn();
-            } else
-            {
+            } else {
                 $('.scrollup').fadeOut();
             }
         });

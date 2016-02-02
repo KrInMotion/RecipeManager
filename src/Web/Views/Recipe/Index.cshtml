@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Web.ViewModels.Recipe.RecipeListVM>
+@{
+    ViewBag.Title = "Рецепты";
+}
+<div class="breadcrumbs">
+    <div class="container">
+        <h1 class="pull-left">Рецепты</h1>
+        <ul class="breadcrumb pull-right">
+            <li class="active">Рецепты</li>
+        </ul>
+    </div>
+</div>
+<div class="search-block">
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+            <h2>Поиск рецепта</h2>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Введите для поиска..." />
+                <span class="input-group-btn">
+                    <button class="btn" type="button" style="background: #72c02c; color:#fff;">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container content-sm">
+    @if (Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(x => x.First().Title)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    }
+</div>
