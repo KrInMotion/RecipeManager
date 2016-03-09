@@ -67,6 +67,12 @@ h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
     margin-top: 20px;
 }
 
+/*Buttons*/
+
+.btn-dark {
+    background: #555;
+}
+
 /*Panels*/
 .panel,
 .panel-heading{
@@ -96,6 +102,14 @@ h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
 
 .panel-lgreen > .panel-heading {
     background: #72c02c;
+}
+
+.panel-dark {
+	border-color: #555;
+}
+
+.panel-dark > .panel-heading {
+	background: #555;
 }
 
 /*Breadcrumbs*/
@@ -179,6 +193,7 @@ footer .copyright p {
 .search-block {
     padding: 40px 0 50px;
     border-bottom: 1px solid #eee;
+    background: url(../images/breadcrumbs.png) repeat;
 }
 
 .search-block h2 {
@@ -188,6 +203,11 @@ footer .copyright p {
 	margin-bottom: 18px;
 	text-transform: uppercase;
 }
+.search-block .search-button {
+    background: #72c02c;
+    color:#fff;
+}
+
 .table-search thead {
     border-bottom: solid 1px #ddd;
 }
@@ -195,3 +215,30 @@ footer .copyright p {
 .table-search td {
     vertical-align: central !important;
 }
+
+.table-search td a {
+    color: #555;
+}
+
+.table-search td span.label {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 7px;
+}
+
+.table-search .td-width {
+    width: 55%;
+}
+
+.table-search .table-buttons {
+    margin: 0;
+}
+
+    .table-search .table-buttons li {
+        margin: 0;
+    }
+    
+    .table-search .table-buttons .btn-sm {
+        padding: 3px 6px;
+    }

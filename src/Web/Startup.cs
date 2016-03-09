@@ -35,7 +35,8 @@ namespace Web
                 });
             services.AddMvc();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
-        }  
+            services.AddScoped<IRecipeRepository, RecipeRepository>();
+        }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
