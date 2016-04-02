@@ -8,9 +8,10 @@ using Web.Models;
 namespace Web.Migrations
 {
     [DbContext(typeof(RecipeContext))]
-    partial class RecipeContextModelSnapshot : ModelSnapshot
+    [Migration("20160402090420_v3")]
+    partial class v3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -41,9 +42,7 @@ namespace Web.Migrations
                     b.Property<string>("CoockTime")
                         .HasAnnotation("MaxLength", 100);
 
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("Relational:GeneratedValueSql", "getdate()");
+                    b.Property<DateTime>("CreatedAt");
 
                     b.Property<bool>("IsFavorite");
 

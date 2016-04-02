@@ -48,6 +48,7 @@ namespace Web
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+                app.UseRuntimeInfoPage("/rti");
             } else
             {
 

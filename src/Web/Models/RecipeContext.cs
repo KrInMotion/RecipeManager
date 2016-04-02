@@ -27,7 +27,9 @@ namespace Web.Models
                 .IsRequired();
             modelBuilder.Entity<Recipe>().Property(x => x.CoockTime)
                 .HasMaxLength(100);
-            modelBuilder.Entity<Recipe>().Property(x => x.CreatedAt).IsRequired();
+            modelBuilder.Entity<Recipe>().Property(x => x.CreatedAt)
+                .IsRequired()
+                .HasDefaultValueSql("getdate()");
         }
     }
 }
