@@ -1,0 +1,18 @@
+﻿<div class="search-block">
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+            <h2>Поиск рецепта</h2>
+            <form id="searchForm" asp-controller="Recipe" asp-action="Search" >
+                <div class="input-group">
+                    <input type="text" class="form-control"
+                            id="searchText" name="searchText" placeholder="Введите для поиска..." />
+                    <span class="input-group-btn">
+                        <button class="btn search-button" type="submit" id="searchBtn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

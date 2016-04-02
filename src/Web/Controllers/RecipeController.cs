@@ -8,8 +8,6 @@ using Microsoft.Extensions.Logging;
 using Web.Models.Repositories;
 using Web.Models.Entities;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Web.Controllers
 {
     public class RecipeController : Controller
@@ -22,7 +20,14 @@ namespace Web.Controllers
             _recipeRepository = recipeRepository;
             _logger = logger;
         }
+
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult Search(string searchText)
         {
             var entity = _recipeRepository.GetAllRecipesWithCategory();
             var model = new List<RecipeListVM>();
