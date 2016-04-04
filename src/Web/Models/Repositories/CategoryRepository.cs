@@ -24,7 +24,7 @@ namespace Web.Models.Repositories
         {
             return _context.Categories.Include(x=>x.Recipies);
         }
-        public bool SaveAll()
+        public bool Commit()
         {
             return _context.SaveChanges() > 0;
         }

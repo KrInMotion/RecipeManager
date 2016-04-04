@@ -246,3 +246,8 @@ footer .copyright p {
     .table-search .table-buttons .btn-sm {
         padding: 3px 6px;
     }
+.input-sshort {
+    max-width: 30%;
+}.input-xshort {
+    max-width: 10%;
+}

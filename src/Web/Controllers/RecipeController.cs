@@ -7,6 +7,7 @@ using Web.ViewModels.Recipe;
 using Microsoft.Extensions.Logging;
 using Web.Models.Repositories;
 using Web.Models.Entities;
+using Microsoft.AspNet.Mvc.Rendering;
 
 namespace Web.Controllers
 {
@@ -14,10 +15,14 @@ namespace Web.Controllers
     {
         private readonly ILogger<RecipeController> _logger;
         private readonly IRecipeRepository _recipeRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public RecipeController(IRecipeRepository recipeRepository, ILogger<RecipeController> logger)
+        public RecipeController(IRecipeRepository recipeRepository, 
+            ICategoryRepository categoryRepository, 
+            ILogger<RecipeController> logger)
         {
             _recipeRepository = recipeRepository;
+            _categoryRepository = categoryRepository;
             _logger = logger;
         }
 
@@ -50,20 +55,28 @@ namespace Web.Controllers
         public IActionResult Create()
         {
             var model = new RecipeFormVM();
+            ViewBag.Categories = new SelectList(_categoryRepository.GetAllCategories(), "Id", "Name");
             return View(model);
         }
 
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Create(RecipeFormVM model)
         {
-            var entity = new Recipe
+            if (ModelState.IsValid)
             {
-                Title=model.Title,
-                CoockTime=model.CoockTime,
-                Content=model.Content
-            };
-            entity.CreatedAt = DateTime.Now;
-            return RedirectToAction("Detail", new { id = entity.Id });
+                var entity = new Recipe
+                {
+                    CategoryId = model.CategoryId,
+                    Title = model.Title,
+                    CoockTime = model.CoockTime,
+                    Content = model.Content,
+                    Portions = model.Portions
+                };
+                entity.CreatedAt = DateTime.Now;
+                return RedirectToAction("Detail", new { id = entity.Id });
+            }
+            ViewBag.Categories = new SelectList(_categoryRepository.GetAllCategories(), "Id", "Name");
+            return View(model);
         }
 
         public IActionResult Detail(int id)

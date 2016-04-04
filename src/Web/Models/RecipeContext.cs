@@ -25,7 +25,6 @@ namespace Web.Models
                 entity.Property(c => c.Content).IsRequired();
                 entity.Property(x => x.CoockTime).HasMaxLength(100);
                 entity.Property(x => x.CreatedAt).IsRequired().HasDefaultValueSql("getdate()");
-
             });
         }
     }

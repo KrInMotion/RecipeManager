@@ -12,22 +12,31 @@
         <div class="panel-body">
             <form asp-controller="Recipe" asp-action="Create" method="post" role="form">
                 <fieldset>
-                    <legend>Новый рецепт</legend>
                     <div asp-validation-summary="ValidationSummary.ModelOnly"></div>
                     <div class="form-group">
                         <label asp-for="Title"></label>
                         <input asp-for="Title" class="form-control" />
-                        <span asp-validation-for="Title"></span>
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CategoryId"></label>
+                        <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control input-sshort"></select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="CoockTime"></label>
-                        <input asp-for="CoockTime" class="form-control" />
-                        <span asp-validation-for="CoockTime"></span>
+                        <input asp-for="CoockTime" class="form-control input-xshort" />
+                        <span asp-validation-for="CoockTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Portions"></label>
+                        <input asp-for="Portions" class="form-control input-xshort" />
+                        <span asp-validation-for="Portions" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Content"></label>
-                        <textarea asp-for="Content" class="form-control"></textarea>
-                        <span asp-validation-for="Content"></span>
+                        <textarea asp-for="Content" class="form-control" rows="4"></textarea>
+                        <span asp-validation-for="Content" class="text-danger"></span>
                     </div>
                     <button type="submit" class="btn btn-default">Создать</button>
                 </fieldset>
@@ -35,3 +44,7 @@
         </div>
     </div>
 </div>
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
