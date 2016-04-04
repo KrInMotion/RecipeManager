@@ -10,6 +10,7 @@ namespace Web.Models.Repositories
     {
         IEnumerable<Recipe> GetAllRecipes();
         IEnumerable<Recipe> GetAllRecipesWithCategory();
-        bool SaveAll();
+        IEnumerable<Recipe> FindRecipe(string searchText);
+        bool Commit();
     }
 }

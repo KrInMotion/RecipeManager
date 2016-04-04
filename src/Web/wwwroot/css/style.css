@@ -67,6 +67,10 @@ h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
     margin-top: 20px;
 }
 
+.margin-bottom-40 {
+    margin-bottom: 40px;
+}
+
 /*Buttons*/
 
 .btn-dark {

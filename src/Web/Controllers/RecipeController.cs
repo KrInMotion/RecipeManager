@@ -29,7 +29,9 @@ namespace Web.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Search(string searchText)
         {
-            var entity = _recipeRepository.GetAllRecipesWithCategory();
+            if (string.IsNullOrEmpty(searchText))
+                return RedirectToAction("Index");
+            var entity = _recipeRepository.FindRecipe(searchText);
             var model = new List<RecipeListVM>();
             foreach (var item in entity)
             {
@@ -42,6 +44,26 @@ namespace Web.Controllers
                 });
             };
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            var model = new RecipeFormVM();
+            return View(model);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult Create(RecipeFormVM model)
+        {
+            var entity = new Recipe
+            {
+                Title=model.Title,
+                CoockTime=model.CoockTime,
+                Content=model.Content
+            };
+            entity.CreatedAt = DateTime.Now;
+            return RedirectToAction("Detail", new { id = entity.Id });
         }
 
         public IActionResult Detail(int id)

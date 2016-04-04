@@ -7,16 +7,19 @@
         <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
         <link href="~/css/style.css" rel="stylesheet" />
     </environment>
-    <environment name="Staging, Production">
+    @*<environment name="Staging, Production">
         <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
-    </environment>
+    </environment>*@
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <div class="wrapper">
         <nav class="navbar navbar-default">
             <div class="container">
-                <button class="btn btn-default navbar-btn">Создать</button>
+                <div class="navbar-header">
+                    <a asp-controller="Recipe" asp-action="Index" class="navbar-brand">Менеджер рецептов</a>
+                </div>
+                <a asp-controller="Recipe" asp-action="Create" class="btn btn-default navbar-btn">Создать новый</a>
             </div>
         </nav>
         @RenderBody()

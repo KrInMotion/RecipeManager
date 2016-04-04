@@ -15,6 +15,16 @@ namespace Web.Models.Repositories
         {
             _context = context;
         }
+
+        public IEnumerable<Recipe> FindRecipe(string searchText)
+        {
+            var result = _context.Recipies
+                .Include(x => x.Category)
+                .Where(x=>x.Title.Contains(searchText) || x.Category.Name.Contains(searchText))
+                .ToList();
+            return result;
+        }
+
         public IEnumerable<Recipe> GetAllRecipes()
         {
             return _context.Recipies.ToList();
@@ -24,8 +34,12 @@ namespace Web.Models.Repositories
         {
             return _context.Recipies.Include(x=>x.Category).ToList();
         }
+        public void CreateRecipe(Recipe entity)
+        {
+            _context.Recipies.Add(entity);
+        }
 
-        public bool SaveAll()
+        public bool Commit()
         {
             return _context.SaveChanges() > 0;
         }
