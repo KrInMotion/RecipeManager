@@ -14,5 +14,6 @@ namespace Web.ViewModels.Recipe
         public int CategoryId { get; set; }
         [Display(Name = "Категория")]
         public string CategoryName { get; set; }
+        public string SearchText { get; set; }
     }
 }

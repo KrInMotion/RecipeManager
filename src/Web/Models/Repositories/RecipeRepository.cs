@@ -44,5 +44,14 @@ namespace Web.Models.Repositories
             return _context.SaveChanges() > 0;
         }
 
+        public Recipe GetRecipe(int id)
+        {
+            return _context.Recipies.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void DeleteRecipe(Recipe entity)
+        {
+            _context.Recipies.Remove(entity);
+        }
     }
 }

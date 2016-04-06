@@ -45,7 +45,8 @@ namespace Web.Controllers
                     Id = item.Id,
                     CategoryId = item.CategoryId,
                     CategoryName = item.Category.Name,
-                    Title = item.Title
+                    Title = item.Title,
+                    SearchText = searchText
                 });
             };
             return View(model);
@@ -82,6 +83,18 @@ namespace Web.Controllers
         public IActionResult Detail(int id)
         {
             return View();
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult Delete(int selectedId, string searchText)
+        {
+            var entity = _recipeRepository.GetRecipe(selectedId);
+            if(entity!=null)
+            {
+                _recipeRepository.DeleteRecipe(entity);
+                _recipeRepository.Commit();
+            }
+            return RedirectToAction("Index");
         }
     }
 }
