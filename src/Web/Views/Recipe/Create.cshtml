@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Portions"></label>
-                        <input asp-for="Portions" class="form-control input-xshort" />
+                        <input asp-for="Portions" class="form-control input-xshort" min="1" max="100" />
                         <span asp-validation-for="Portions" class="text-danger"></span>
                     </div>
                     <div class="form-group">

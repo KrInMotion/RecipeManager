@@ -26,11 +26,13 @@ namespace Web.Controllers
             _logger = logger;
         }
 
+        //GET: Recipe/Index
         public IActionResult Index()
         {
             return View();
         }
 
+        //POST: Recipe/Search/{searchText}
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Search(string searchText)
         {
@@ -52,14 +54,19 @@ namespace Web.Controllers
             return View(model);
         }
 
+        //GET: Recipe/Create
         [HttpGet]
         public IActionResult Create()
         {
-            var model = new RecipeFormVM();
+            var model = new RecipeFormVM
+            {
+                Portions = 1
+            };
             ViewBag.Categories = new SelectList(_categoryRepository.GetAllCategories(), "Id", "Name");
             return View(model);
         }
 
+        //POST: Recipe/Create
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Create(RecipeFormVM model)
         {
@@ -80,11 +87,13 @@ namespace Web.Controllers
             return View(model);
         }
 
+        //GET: Recipe/Detail/{id}
         public IActionResult Detail(int id)
         {
             return View();
         }
 
+        //POST: Recipe/Delete
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Delete(int selectedId, string searchText)
         {
