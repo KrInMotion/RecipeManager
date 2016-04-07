@@ -46,7 +46,7 @@ namespace Web.Models.Repositories
 
         public Recipe GetRecipe(int id)
         {
-            return _context.Recipies.FirstOrDefault(x => x.Id == id);
+            return _context.Recipies.Include(x=>x.Category).FirstOrDefault(x => x.Id == id);
         }
 
         public void DeleteRecipe(Recipe entity)

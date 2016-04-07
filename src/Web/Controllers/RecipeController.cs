@@ -90,7 +90,24 @@ namespace Web.Controllers
         //GET: Recipe/Detail/{id}
         public IActionResult Detail(int id)
         {
-            return View();
+            var entity = _recipeRepository.GetRecipe(id);
+            if (entity == null)
+            {
+                return HttpNotFound();
+            }
+            var model = new RecipeDetailVM
+            {
+                Id = entity.Id,
+                CategoryId = entity.CategoryId,
+                CategoryName = entity.Category.Name,
+                Title = entity.Title,
+                Content = entity.Content,
+                CoockTime = entity.CoockTime,
+                Portions = entity.Portions,
+                CreatedAt = entity.CreatedAt,
+                UpdatedAt = entity.UpdatedAt
+            };
+            return View(model);
         }
 
         //POST: Recipe/Delete
