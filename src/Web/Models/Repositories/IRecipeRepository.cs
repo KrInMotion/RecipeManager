@@ -12,6 +12,7 @@ namespace Web.Models.Repositories
         IEnumerable<Recipe> GetAllRecipesWithCategory();
         IEnumerable<Recipe> FindRecipe(string searchText);
         Recipe GetRecipe(int id);
+        void CreateRecipe(Recipe entity);
         bool Commit();
         void DeleteRecipe(Recipe entity);
     }

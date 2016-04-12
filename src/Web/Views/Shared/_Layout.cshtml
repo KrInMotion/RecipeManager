@@ -5,6 +5,7 @@
     <environment name="Development">
         <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
         <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="~/lib/summernote/dist/summernote.css" rel="stylesheet" />
         <link href="~/css/style.css" rel="stylesheet" />
     </environment>
     @*<environment name="Staging, Production">
@@ -19,7 +20,9 @@
                 <div class="navbar-header">
                     <a asp-controller="Recipe" asp-action="Index" class="navbar-brand">Менеджер рецептов</a>
                 </div>
-                <a asp-controller="Recipe" asp-action="Create" class="btn btn-default navbar-btn">Создать новый</a>
+                <div class="pull-right">
+                    <a asp-controller="Recipe" asp-action="Create" class="btn btn-primary navbar-btn">Создать новый</a>
+                </div>
             </div>
         </nav>
         @RenderBody()
@@ -31,10 +34,7 @@
             </div>
         </footer>
         <div class="scrollup">
-            <i class="fa fa-chevron-up">
-
-            </i>
-
+            <i class="fa fa-chevron-up"></i>
         </div>
     </div>
 

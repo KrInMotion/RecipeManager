@@ -81,6 +81,8 @@ namespace Web.Controllers
                     Portions = model.Portions
                 };
                 entity.CreatedAt = DateTime.Now;
+                _recipeRepository.CreateRecipe(entity);
+                _recipeRepository.Commit();
                 return RedirectToAction("Detail", new { id = entity.Id });
             }
             ViewBag.Categories = new SelectList(_categoryRepository.GetAllCategories(), "Id", "Name");
