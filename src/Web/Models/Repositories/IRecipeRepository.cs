@@ -10,6 +10,7 @@ namespace Web.Models.Repositories
     {
         IEnumerable<Recipe> GetAllRecipes();
         IEnumerable<Recipe> GetAllRecipesWithCategory();
+        IEnumerable<Recipe> GetLastRecipes(int cont);
         IEnumerable<Recipe> FindRecipe(string searchText);
         Recipe GetRecipe(int id);
         void CreateRecipe(Recipe entity);

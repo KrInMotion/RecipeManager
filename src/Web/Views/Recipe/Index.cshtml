@@ -1,4 +1,23 @@
-﻿@{
+﻿@model IEnumerable<Web.ViewModels.Recipe.RecipeListVM>
+@{
     ViewBag.Title = "Рецепты";
 }
-@Html.Partial("_SearchBlock")
+<div class="container content-sm">
+    <div class="row">
+        <div class="col-md-12">
+            @if (Model.Any())
+            {
+                @Html.Partial("_RecipeList", Model)
+            }
+            else
+            {
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="text-center">
+                        <strong>Рецептов пока нет, но ничего не мешает добавить их!</strong>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

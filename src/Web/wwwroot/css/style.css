@@ -1,5 +1,11 @@
 ﻿@import url("theme.css");
-
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 40px;
+}
 .wrapper {
     background: #fff;
 }
@@ -7,6 +13,11 @@
 .content-sm {
     padding-top: 60px;
     padding-bottom: 60px;
+}
+
+.brand-image {
+    width: 32px;
+    height: 32px;
 }
 
 /*Margins*/
@@ -75,14 +86,17 @@ div.scrollup:hover{
 }
 
 /*Footer*/
-footer .copyright {
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     background: #eee;
-    padding: 20px 0 15px;
+    height: 40px;
 }
 
-footer .copyright p {
+.footer p {
     color: #555;
-    margin-bottom: 0;
+    margin: 10px 0;
 }
 
 /*Search block*/

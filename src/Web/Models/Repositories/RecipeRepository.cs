@@ -53,5 +53,14 @@ namespace Web.Models.Repositories
         {
             _context.Recipies.Remove(entity);
         }
+
+        public IEnumerable<Recipe> GetLastRecipes(int count)
+        {
+            return _context.Recipies
+                .Include(x=>x.Category)
+                .OrderByDescending(x => x.CreatedAt)
+                .Take(count)
+                .ToList();
+        }
     }
 }

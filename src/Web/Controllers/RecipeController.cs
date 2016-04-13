@@ -29,7 +29,19 @@ namespace Web.Controllers
         //GET: Recipe/Index
         public IActionResult Index()
         {
-            return View();
+            var entity = _recipeRepository.GetLastRecipes(10);
+            var model = new List<RecipeListVM>();
+            foreach (var item in entity)
+            {
+                model.Add(new RecipeListVM
+                {
+                    Id = item.Id,
+                    CategoryId = item.CategoryId,
+                    CategoryName = item.Category.Name,
+                    Title = item.Title
+                });
+            };
+            return View(model);
         }
 
         //POST: Recipe/Search/{searchText}

@@ -6,7 +6,7 @@
     "jquery-validation": "^1.15.0",
     "jquery-validation-unobtrusive": "^3.2.6",
     "bootstrap": "^3.3.5",
-    "font-awesome": "^4.4.0",
+    "font-awesome": "^4.6.1",
     "summernote": "^0.8.1",
     "admin-lte": "*"
   }
