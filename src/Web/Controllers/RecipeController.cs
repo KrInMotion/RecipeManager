@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Web.Models.Repositories;
 using Web.Models.Entities;
 using Microsoft.AspNet.Mvc.Rendering;
+using Web.Models;
 
 namespace Web.Controllers
 {
@@ -95,6 +96,8 @@ namespace Web.Controllers
                 entity.CreatedAt = DateTime.Now;
                 _recipeRepository.CreateRecipe(entity);
                 _recipeRepository.Commit();
+                //TempData["FlashMessage"] = "Рецепт создан";
+                //TempData["FlashType"] = FlashMessageType.Success;
                 return RedirectToAction("Detail", new { id = entity.Id });
             }
             ViewBag.Categories = new SelectList(_categoryRepository.GetAllCategories(), "Id", "Name");

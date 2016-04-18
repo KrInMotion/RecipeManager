@@ -1,0 +1,17 @@
+﻿@using Web.Models
+@{
+    var text = (string)TempData["FlashMessage.Text"];
+    if(!string.IsNullOrEmpty(text))
+    {
+        var flashType = (FlashMessageType)TempData["FlashMessage.Type"];
+        var cssClass = flashType.ToString().ToLower();
+        if(!string.IsNullOrEmpty(cssClass))
+        {
+            <div class="@cssClass">
+                <p>
+                    @text;
+                </p>
+            </div>
+        }
+    }
+}
